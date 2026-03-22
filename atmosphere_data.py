@@ -26,4 +26,7 @@ def get_atmosphere_data(h):
 
     density = pressure / (0.2869 * (temp + 273.1))
        
+       
     return temp, pressure, density, h
+
+
