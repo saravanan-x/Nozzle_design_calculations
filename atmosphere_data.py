@@ -6,7 +6,7 @@ import numpy as np
 def get_atmosphere_data(h):
     """
     Calculates atmospheric properties based on altitude (h) in meters.
-    Returns: temperature (C), pressure (kPa), density (kg/m³)
+    Returns: temperature (C), pressure (kPa), density (kg/m³),h
     """
 
     if h < 11000:
@@ -25,24 +25,5 @@ def get_atmosphere_data(h):
         pressure = 2.488 * ((temp + 273.1) / 216.6)**-11.388
 
     density = pressure / (0.2869 * (temp + 273.1))
-
-    return temp, pressure, density
-
-
-# Example
-Target_height = 10 #KM
-altitude = Target_height * 1000   # Requuired KM of rocket
-
-t, p, rho = get_atmosphere_data(altitude)
-
-temp_k = t + 273.15
-pressure_pa = p * 1000
-pressure_mpa = pressure_pa / 1e6
-
-print(f"Altitude: {altitude} m")
-print(f"Temperature: {t:.2f} °C")
-print(f"Temperature: {temp_k:.2f} K")
-print(f"Pressure: {p:.2f} kPa")
-print(f"Pressure: {pressure_pa:.2f} Pa")
-print(f"Pressure: {pressure_mpa:.6f} MPa")
-print(f"Density: {rho:.4f} kg/m³")
+       
+    return temp, pressure, density, h
